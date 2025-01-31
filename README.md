@@ -6,16 +6,20 @@ A powerful Instagram scraping tool built with Python and Streamlit that allows y
 
 - Scrape Instagram posts, comments, and profiles
 - Support for multiple Instagram URLs
+- Modern, responsive UI with dark mode
+- 1:1 aspect ratio image cards
+- Interactive analytics dashboard
 - Export data to JSON format
 - User-friendly Streamlit interface
 - Advanced search options
-- Secure login handling
+- Secure API token handling
 - Rate limiting and error handling
+- Robust image fetching with CDN fallbacks
 
 ## Prerequisites
 
 - Python 3.8 or higher
-- Instagram account for authentication
+- Apify account and API token
 
 ## Installation
 
@@ -36,10 +40,9 @@ source venv/bin/activate  # On Windows: venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-4. Create a `.env` file in the root directory with your Instagram credentials (optional):
+4. Create a `.env` file in the root directory with your Apify API token:
 ```
-INSTAGRAM_USERNAME=your_username
-INSTAGRAM_PASSWORD=your_password
+APIFY_API_TOKEN=your_api_token_here
 ```
 
 ## Usage
@@ -51,19 +54,24 @@ streamlit run app.py
 
 2. Open your browser and navigate to `http://localhost:8501`
 
-3. Log in with your Instagram credentials
+3. Enter one or more Instagram URLs to scrape
 
-4. Enter one or more Instagram URLs to scrape
-
-5. Configure scraping options:
-   - Results Limit: Maximum number of results to fetch
-   - Search Type: Choose between hashtag, profile, or location
-   - Results Type: Choose between posts, comments, or profile
+4. Configure scraping options:
+   - Results Limit: Maximum number of results to fetch (1-1000)
+   - Search Type: Choose between user, hashtag, or place
+   - Results Type: Choose between posts, comments, details, mentions, or stories
+   - Search Limit: Number of search results to process (1-100)
    - Advanced Options: Additional configuration options
 
-6. Click "Start Scraping" to begin
+5. Click "Start Scraping" to begin
 
-7. Download the results as JSON
+6. View the results:
+   - Analytics Overview with engagement metrics
+   - Interactive data tables for post engagement and hashtag analysis
+   - Visual post cards with images, captions, and comments
+   - Expandable sections for additional content
+
+7. Download the results as JSON from the sidebar
 
 ## Project Structure
 
@@ -77,6 +85,30 @@ instagram-scraper/
 ├── .env               # Environment variables (create this)
 └── README.md          # This file
 ```
+
+## Features in Detail
+
+### UI Components
+- Dark mode interface
+- Responsive layout with columns
+- 1:1 aspect ratio image cards
+- Expandable sections for captions and hashtags
+- Interactive analytics dashboard
+- Modern styling with consistent theme
+
+### Data Display
+- Post metadata (username, timestamp, engagement metrics)
+- Full-size post images with proper aspect ratio
+- Additional images in expandable sections
+- Latest comments with user information
+- Hashtag statistics and analysis
+
+### Analytics
+- Total posts, likes, and comments metrics
+- Average engagement calculations
+- Post engagement timeline
+- Hashtag usage and performance analysis
+- Interactive data tables with sorting and filtering
 
 ## Testing
 
